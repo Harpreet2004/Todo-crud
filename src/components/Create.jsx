@@ -13,7 +13,7 @@ const Create = () => {
 
   const handleForm = (e) => { 
     e.preventDefault();
-    dispatch(addTodo({todo,id: todoState[todoState.length - 1].id + 1}));
+    dispatch(addTodo({todo,id: todoState[todoState.length - 1]?.id + 1 || 1}));
     navigate("/")
   }
 

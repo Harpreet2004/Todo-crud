@@ -9,8 +9,11 @@ export const todoSlice = createSlice({
             state.push(action.payload)
         },
         removeTodo: (state,action) => {
-            const {id} = action.payload;
-            state = state.filter((todo) => todo.id !== id)
+            const id = action.payload;
+            const ind = state.findIndex(todo => todo.id === id);
+            if(ind != -1) {
+                state.splice(ind,1)
+            }
         },
         updateTodo: (state,action) => {
             const {todo,id} = action.payload;
